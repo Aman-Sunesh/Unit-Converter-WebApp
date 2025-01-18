@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Unit Convertor</title>
+        <title>Unit Converter</title>
         <style>
             body {
               background-color: tan;
@@ -9,11 +9,15 @@
             p, label, legend {
               font-family: arial;
               font-size: 15px;
-              color: black; /* Changed from white to ensure readability */
+              color: black;
             }
             div {
               background-color: tan;
               width: 300px;
+            }
+            button, nav a {
+              cursor: pointer;
+              margin: 0 5px;
             }
         </style>
         <script type="text/javascript">
@@ -23,7 +27,7 @@
                 
                 if (value === "") {
                     alert("Please type in the field.");
-                } else if (isNaN(Number(value))){
+                } else if (isNaN(Number(value))) {
                     alert("Please enter a numeric value.");
                 } else {
                     var fahrenheit = (value * 9/5) + 32;
@@ -36,7 +40,7 @@
                 var value = textField.value;
                 if (value === "") {
                     alert("Please type in the field.");
-                } else if (isNaN(Number(value))){
+                } else if (isNaN(Number(value))) {
                     alert("Please enter a numeric value.");
                 } else {
                     var pounds = value * 2.205;
@@ -49,29 +53,35 @@
                 var value = textField.value;
                 if (value === "") {
                     alert("Please type in the field.");
-                } else if (isNaN(Number(value))){
+                } else if (isNaN(Number(value))) {
                     alert("Please enter a numeric value.");
                 } else {
                     var miles = value / 1.609;
                     document.getElementById('m').value = miles.toFixed(2);
                 }
             }
+
+            // Scroll to a specific section by ID
+            function goToSection(sectionId) {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
         </script>
     </head>
     <body>
         <section id="home">
-            <h1><b>Unit Convertor</b></h1>
+            <h1><b>Unit Converter</b></h1>
             <hr>
             <nav>
-                <button onclick="convertCelsiusToFahrenheit()">Celsius to Fahrenheit</button>
-                <button onclick="convertKilogramToPounds()">Kilogram to Pounds</button>
-                <button onclick="convertKilometersToMiles()">Kilometers to Miles</button>
+                <!-- Use buttons with onclick to scroll to the respective section -->
+                <button onclick="goToSection('CelsiustoFahrenheit')">Celsius to Fahrenheit</button>
+                <button onclick="goToSection('KilogramtoPounds')">Kilogram to Pounds</button>
+                <button onclick="goToSection('KilometerstoMiles')">Kilometers to Miles</button>
             </nav>
             <hr>
             <div id="all-conversion-sections">
                 <section id="CelsiustoFahrenheit">
                     <div id="tmp">
-                        <h2>Celsius to Fahrenheit Convertor</h2>
+                        <h2>Celsius to Fahrenheit Converter</h2>
                         <br>
                         <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/thermo.png" width="200px"/>
                         <figcaption>Celsius to Fahrenheit Conversion</figcaption>
@@ -79,20 +89,20 @@
                         <fieldset>
                             <legend>Temperature</legend>
                             <label>Celsius</label> <br/>
-                            <input type="number" id="c"> <br/>
+                            <input type="number" id="c" /> <br/>
                             <button onclick="convertCelsiusToFahrenheit()">Convert</button> <br/>
-                            <input type="number" id="f" readonly> <br/>
+                            <input type="number" id="f" readonly /> <br/>
                             <label>Fahrenheit</label>
                         </fieldset>
                         <aside>
-                            To convert Celsius to Fahrenheit yourself, use this formula replacing the `C` with your temperature in Celsius: (C × 9/5) + 32
+                            To convert Celsius to Fahrenheit yourself, use this formula replacing the `C` with your temperature in Celsius: (C &times; 9/5) + 32
                         </aside>
                     </div>
                 </section>
                 <hr>
                 <section id="KilogramtoPounds">
                     <div id="wgt">
-                        <h2>Kilogram to Pounds Convertor</h2>
+                        <h2>Kilogram to Pounds Converter</h2>
                         <br>
                         <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/weight.png" width="200px"/>
                         <figcaption>Kilogram to Pound Conversion</figcaption>
@@ -100,20 +110,20 @@
                         <fieldset>
                             <legend>Weight</legend>
                             <label>Kilograms</label> <br/>
-                            <input type="number" id="kg"> <br/>
+                            <input type="number" id="kg" /> <br/>
                             <button onclick="convertKilogramToPounds()">Convert</button> <br/>
-                            <input type="number" id="lbs" readonly> <br/>
+                            <input type="number" id="lbs" readonly /> <br/>
                             <label>Pounds</label>
                         </fieldset>
                         <aside>
-                            To convert kilograms to pounds yourself, use this formula replacing the `kg` with your weight in kilograms: kg x 2.205
+                            To convert kilograms to pounds yourself, use this formula replacing the `kg` with your weight in kilograms: (value in kg) x 2.205
                         </aside>
                     </div>
                 </section>
                 <hr>
                 <section id="KilometerstoMiles">
                     <div id="dst">
-                        <h2>Kilometers to Miles Convertor</h2>
+                        <h2>Kilometers to Miles Converter</h2>
                         <br>
                         <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/speedo.png" width="200px"/>
                         <figcaption>Kilometer to Mile Conversion</figcaption>
@@ -121,20 +131,24 @@
                         <fieldset>
                             <legend>Distance</legend>
                             <label>Kilometers</label> <br/>
-                            <input type="number" id="km"> <br/>
+                            <input type="number" id="km" /> <br/>
                             <button onclick="convertKilometersToMiles()">Convert</button> <br/>
-                            <input type="number" id="m" readonly> <br/>
+                            <input type="number" id="m" readonly /> <br/>
                             <label>Miles</label>
                         </fieldset>
                         <aside>
-                            To convert kilometers to miles yourself, use this formula replacing the `km` with your distance in kilometers: km &divide; 1.609
+                            To convert kilometers to miles yourself, use this formula replacing the `km` with your distance in kilometers: (value in km) &divide; 1.609
                         </aside>
                     </div>
                 </section>
             </div>
             <hr>
-            <div id="go-home">
-                <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/home.svg"/>
+            <!-- Home button that scrolls back to the top -->
+            <div id="go-home" style="cursor: pointer;" onclick="goToSection('home')">
+                <img 
+                     src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-CD0101EN-SkillsNetwork/labs/Theia%20Labs/02%20-%20HTML5%20Elements/images/home.svg"
+                     alt="Go to Home" 
+                />
             </div>
             <footer>
                 &copy; 2024 Aman Sunesh as18181@nyu.edu
