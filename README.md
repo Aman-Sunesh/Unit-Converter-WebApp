@@ -47,27 +47,17 @@ Navigate to http://0.0.0.0:8080 or http://localhost:8080 in your browser to acce
 #### Celsius to Fahrenheit
 1. Input the temperature in Celsius.
 2. Click the "Convert" button to see the result in Fahrenheit.
-3. **Formula:** 
-   \[
-   \text{Fahrenheit} = \left( \text{Celsius} \times \frac{9}{5} \right) + 32
-   \]
+3. **Formula:** Celsius = (Fahrenheit - 32) * (5/9)
 
 #### Kilograms to Pounds
 1. Input the weight in Kilograms.
 2. Click the "Convert" button to see the result in Pounds.
-3. **Formula:** 
-   \[
-   \text{Pounds} = \text{Kilograms} \times 2.205
-   \]
+3. **Formula:** Pounds = Kilograms * 2.205
 
 #### Kilometers to Miles
 1. Input the distance in Kilometers.
 2. Click the "Convert" button to see the result in Miles.
-3. **Formula:** 
-   \[
-   \text{Miles} = \frac{\text{Kilometers}}{1.609}
-   \]
-
+3. **Formula:** Miles = Kilometers / 1.609
 ---
 
 ### Features and Functionalities
